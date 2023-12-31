@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000;
 
 //routes
 
+app.use(express.json());
 app.use("/api/animals/v1", animalRouter);
 
 // app.get("/", (req, res) => {
