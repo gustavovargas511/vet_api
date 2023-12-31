@@ -1,5 +1,5 @@
 import express from "express";
-import mongoose from "mongoose";
+import "./database/connection.js"
 import "dotenv/config";
 import animalRouter from "./routes/animal.route.js";
 
@@ -17,6 +17,6 @@ app.use("/api/animals/v1", animalRouter);
 // })
 
 //mongo connection
-mongoose.connect(process.env.MONGO_URI).then(()=>{console.log("Connected...")})
+//mongoose.connect(process.env.MONGO_URI).then(()=>{console.log("Connected...")})
 
 app.listen(port, () => console.log('Server listening on port', port));
