@@ -1,0 +1,21 @@
+{
+  "name": "vet_api",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "CRUD Api for veterinary information",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Gustavo Vargas @1984Development.com",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
