@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
-const animalSchema = new Schema({
+const animalSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -15,4 +15,4 @@ const animalSchema = new Schema({
   },
 });
 
-export const Animal = model("Animal", animalSchema);
+export const Animal = mongoose.model("Animal", animalSchema);
