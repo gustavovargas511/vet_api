@@ -35,3 +35,34 @@ export const getOne = async (req, res) => {
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+
+export const remove = async (req, res) => {
+    const { id } = req.params;
+  try {
+    const animal = await Animal.findByIdAndDelete(id);
+    if (!animal) {
+        return res.status(404).json({ error: 'Animal not found' });
+    }
+    return res.json({ message: 'Animal deleted successfully', animal });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
+export const update = async (req, res) => {
+    const { id } = req.params;
+    const { name, com_name, species } = req.body;
+  try {
+    const animal = await Animal.findByIdAndUpdate(id, {name, com_name, species})
+    if (!animal) {
+        return res.status(404).json({ error: 'Animal not found' });
+    }
+    return res.json({ message: 'Animal updated successfully', animal });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
