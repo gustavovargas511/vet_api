@@ -21,3 +21,17 @@ export const getAll = async (req, res) => {
     console.log(error);
   }
 };
+
+export const getOne = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const animal = await Animal.findById(id);
+    if (!animal) {
+        return res.status(404).json({ error: 'Animal not found' });
+    }
+    return res.json(animal);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
